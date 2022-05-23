@@ -1,26 +1,28 @@
 // Library Import
-
 import { useState, useEffect } from 'react';
-import { Table, Container } from 'react-bootstrap';
+import { Table, Container, Alert } from 'react-bootstrap';
 
 // File Import
 import { UserAPI } from '../api';
+import { Pagination } from './pagination/Pagiantion';
 
 export const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetchUsers();
+    fetchUsers({ page: currentPage });
   }, []);
 
-  const fetchUsers = async () => {
+  const fetchUsers = async (params) => {
     try {
-      const response = await UserAPI.getUsers();
+      const response = await UserAPI.getUsers(params);
       if (response?.status === 200) {
         setUsers(response?.data);
       }
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
   return (
@@ -47,6 +49,19 @@ export const UserList = () => {
             ))}
           </tbody>
         </Table>
+        {error && <Alert variant='danger'>{error}</Alert>}
+        <div className='d-flex justify-content-center mt-5'>
+          <Pagination
+            className='pagination-bar'
+            currentPage={currentPage}
+            totalCount={100}
+            pageSize={10}
+            onPageChange={(page) => {
+              setCurrentPage(page);
+              fetchUsers({ page });
+            }}
+          />
+        </div>
       </Container>
     </div>
   );

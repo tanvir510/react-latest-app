@@ -4,8 +4,8 @@ import { apiEndpoints } from './apiEndpoints';
 
 export class UserAPI {
   // Fetch all users
-  static getUsers() {
-    return Axios.get(apiEndpoints.GET_USERS);
+  static getUsers(params) {
+    return Axios.get(apiEndpoints.GET_USERS, { params });
   }
 }
 
