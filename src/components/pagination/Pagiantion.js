@@ -74,3 +74,17 @@ Pagination.propTypes = {
   pageSize: PropTypes.number,
   className: PropTypes.string
 };
+
+// Call Pagination
+{
+  /* <Pagination
+  className='pagination-bar'
+  currentPage={currentPage}
+  totalCount={100}
+  pageSize={10}
+  onPageChange={(page) => {
+    setCurrentPage(page);
+    fetchUsers({ page });
+  }}
+/> */
+}

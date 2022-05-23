@@ -1,10 +1,9 @@
 // File Import
-import { UserList } from '../components/UserList';
 
 function App() {
   return (
     <div className='App'>
-      <UserList />
+      <h1 className='mt-5'>Welcome to React 18</h1>
     </div>
   );
 }
