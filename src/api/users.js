@@ -1,11 +1,11 @@
 // File Import
-import Axios from 'axios';
+import { http } from '../plugins/axios';
 import { apiEndpoints } from './apiEndpoints';
 
 export class UserAPI {
   // Fetch all users
   static getUsers(params) {
-    return Axios.get(apiEndpoints.GET_USERS, { params });
+    return http.get(apiEndpoints.GET_USERS, { params });
   }
 }
 
