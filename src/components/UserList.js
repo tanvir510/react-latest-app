@@ -51,16 +51,18 @@ export const UserList = () => {
         </Table>
         {error && <Alert variant='danger'>{error}</Alert>}
         <div className='d-flex justify-content-center mt-5'>
-          <Pagination
-            className='pagination-bar'
-            currentPage={currentPage}
-            totalCount={100}
-            pageSize={10}
-            onPageChange={(page) => {
-              setCurrentPage(page);
-              fetchUsers({ page });
-            }}
-          />
+          {users?.length && (
+            <Pagination
+              className='pagination-bar'
+              currentPage={currentPage}
+              totalCount={100}
+              pageSize={10}
+              onPageChange={(page) => {
+                setCurrentPage(page);
+                fetchUsers({ page });
+              }}
+            />
+          )}
         </div>
       </Container>
     </div>
