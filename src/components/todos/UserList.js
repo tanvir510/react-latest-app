@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { Table, Container, Alert } from 'react-bootstrap';
 
 // File Import
-import { UserAPI } from '../api';
-import { Pagination } from './pagination/Pagiantion';
+import { UserAPI } from '../../api';
+import { Pagination } from '../pagination/Pagiantion';
 
 export const UserList = () => {
   const [users, setUsers] = useState([]);

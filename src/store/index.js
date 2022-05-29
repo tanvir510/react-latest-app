@@ -1,5 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
+// Library Import
+import { createStore, compose } from 'redux';
 
-export default configureStore({
-  reducer: {}
-});
+// File Import
+import reducers from './reducers/index';
+
+export default createStore(
+  reducers,
+  compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+);

@@ -1,10 +1,14 @@
 // File Import
-import { UserList } from '../components/UserList';
+import { UserList } from '../components/todos/UserList';
+import { AddTodo } from '../components/todos/AddTodo';
 
 function App() {
   return (
     <div className='App'>
-      <UserList />
+      <div>
+        <AddTodo />
+        <UserList />
+      </div>
     </div>
   );
 }
