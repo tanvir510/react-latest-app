@@ -34,7 +34,8 @@ export const AddTodo = () => {
   return (
     <div>
       <Container>
-        <Form className='mt-5' onSubmit={handleSubmit}>
+        <h2 className='mt-5'>Create new todo</h2> <hr />
+        <Form onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='form-title'>
             <Form.Label>Title</Form.Label>
             <Form.Control
