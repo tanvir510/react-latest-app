@@ -1,11 +1,12 @@
 // Library Import
 import { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 // File Import
-import { todoAction as action } from '../../store/actions/todoAction';
+import { userAction as action } from '../../store/actions/userAction';
 
 const initialState = {
   id: uuidv4(),
@@ -14,7 +15,7 @@ const initialState = {
   website: ''
 };
 
-export const AddTodo = () => {
+export const AddUserModal = ({ show, handleClose }) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState(initialState || {});
 
@@ -24,17 +25,25 @@ export const AddTodo = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(action.addTodo(formData));
+    dispatch(action.addUser(formData));
     resetForm();
+    hideCreateModal();
+  };
+
+  const hideCreateModal = () => {
+    resetForm();
+    handleClose();
   };
 
   const resetForm = () => {
     setFormData(initialState);
   };
   return (
-    <div>
-      <Container>
-        <h2 className='mt-5'>Create new todo</h2> <hr />
+    <Modal show={show} centered onHide={() => hideCreateModal()} size='lg'>
+      <Modal.Header closeButton>
+        <Modal.Title>Add new user</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='form-title'>
             <Form.Label>Title</Form.Label>
@@ -72,7 +81,12 @@ export const AddTodo = () => {
             Submit
           </Button>
         </Form>
-      </Container>
-    </div>
+      </Modal.Body>
+    </Modal>
   );
+};
+
+AddUserModal.propTypes = {
+  show: PropTypes.bool,
+  handleClose: PropTypes.func
 };
