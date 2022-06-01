@@ -38,14 +38,6 @@ body {
   color: $gray;
 }
 
-// Invalid feedback
-.invalid-feedback {
-  color: $white;
-  &.red {
-    color: #dc3545;
-  }
-}
-
 // Reset css
 a {
   outline: none !important;
