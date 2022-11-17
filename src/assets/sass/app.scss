@@ -1,21 +1,19 @@
 // Bootstrap
-// @import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 // Variables
 @import 'variables';
 @import 'normalize';
 @import 'mixins';
 @import 'global';
+@import 'form';
 
 // Components
 // @import 'components';
-
 // Pages
 // @import 'pages';
-
 // Section
 // @import 'header';
 // @import 'footer';
-
 // Addons
 @import 'buttons';

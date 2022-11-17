@@ -19,7 +19,6 @@
       "warn",
       { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
     ],
-    "prettier/prettier": ["error", { "singleQuote": true }],
-    "no-console": "warn"
+    "prettier/prettier": ["error", { "singleQuote": true }]
   }
 }

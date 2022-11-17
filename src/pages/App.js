@@ -1,11 +1,10 @@
-// File Import
-import { UserList } from '../components/UserList';
+import { SocialLogin } from '../components';
 
+// File Import
 function App() {
   return (
     <div className='App'>
-      <h1>User List</h1>
-      <UserList />
+      <SocialLogin />
     </div>
   );
 }

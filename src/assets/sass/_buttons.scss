@@ -1,78 +1,88 @@
+// Custom btn
 .button {
-	outline: none;
-	border: none;
-	border-radius: 2px;
-	height: 40px;
-	min-width: 120px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: $secondary;
-	background: transparent;
-	font-size: 14px;
-	line-height: 16px;
-	font-weight: 400;
-	background: $primary;
-	cursor: pointer;
-	transition: $transition;
-	position: relative;
-	&.primary {
-		background: $primary;
-		color: $white;
-	}
-	&.secondary {
-		background: $secondary;
-		color: $white;
-	}
-	&.tertiary {
-		background: $tertiary;
-		color: $white;
-	}
-	&.yes-btn {
-		background: $secondary;
-		color: $white;
-	}
-	&.checked {
-		background: $secondary !important;
-		color: $white !important;
-	}
-	&.outlined {
-		background: transparent;
-		color: $secondary;
-		border: 1px solid $secondary;
-	}
+  border: none;
+  outline: none;
+  box-shadow: $shadow;
+  height: 45px;
+  width: 100%;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius;
+  color: $white;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  transition: $transition;
 
-	&.next-btn {
-		min-width: 140px;
-		color: $white;
-		display: flex;
-		justify-content: center;
-		padding: 0px 10px;
-		align-items: center;
+  &.primary {
+    background-color: $bg-orange;
+  }
 
-		> svg {
-			font-size: 20px;
-			margin-left: 10px;
-		}
-	}
-	&.radio-box {
-		height: 60px;
-		min-width: 170px;
-		color: $secondary;
-		background: transparent;
-		border: 1px solid $secondary;
-	}
+  &.secondary {
+    background-color: $secondary;
+  }
 
-	// &:focus {
-	// 	outline: none;
-	// 	border: none;
-	// 	box-shadow: none;
-	// }
+  &.outline {
+    background-color: $white;
+    color: $tertiary;
+    border: 1px solid $border;
+    box-shadow: none;
 
-	&:disabled {
-		background-color: #d4d4d4;
-		border-color: #d4d4d4;
-		color: #2f4e4e;
-		cursor: not-allowed;
-	}
+    &:hover {
+      color: $tertiary;
+      border: 1px solid $border;
+    }
+  }
+
+  &.status-btn {
+    box-shadow: none;
+    color: $black;
+    height: 35px;
+    min-width: 100px;
+    font-size: 12px;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &.lite-green {
+    background-color: #d8f2e4;
+  }
+
+  &.lite-red {
+    background-color: #ecd5d8;
+  }
+
+  &.lite-blue {
+    background-color: #d9e5f1;
+  }
+
+  &.lite-orange {
+    background-color: #f2edd9;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+    box-shadow: $shadow;
+  }
+
+  &:hover {
+    color: $white;
+  }
+
+  &:disabled {
+    background-color: $border;
+    color: $tertiary;
+    box-shadow: none;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $border;
+      color: $tertiary;
+    }
+  }
 }
