@@ -66,6 +66,25 @@
     border-radius: 100%;
     text-align: center;
     display: flex;
+    position: relative;
+
+    .social-icon {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      border-radius: 100%;
+      top: 51%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &.facebook {
+        background-image: url('../images/icon/facebook.png');
+      }
+    }
     img {
       width: 100%;
     }

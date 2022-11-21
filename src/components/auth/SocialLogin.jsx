@@ -1,12 +1,20 @@
 // Library Import
 import { Form } from 'react-bootstrap';
+import FacebookLogin from 'react-facebook-login';
 
 // File import
 import GoogleIcon from '../../assets/images/icon/google.png';
-import FacebookIcon from '../../assets/images/icon/facebook.png';
 import TwitterIcon from '../../assets/images/icon/twitter.png';
 
 export const SocialLogin = () => {
+  const responseFacebook = (response) => {
+    console.log(response);
+  };
+
+  const componentClicked = (response) => {
+    console.log(response);
+  };
+
   return (
     <div className='page-wrapper'>
       <div className='form-wrapper'>
@@ -71,7 +79,14 @@ export const SocialLogin = () => {
             <img src={GoogleIcon} alt='Social Icon' />
           </li>
           <li>
-            <img src={FacebookIcon} alt='Social Icon' />
+            <FacebookLogin
+              appId='938908647087644'
+              autoLoad
+              cssClass='social-icon facebook'
+              onClick={componentClicked}
+              callback={responseFacebook}
+              textButton=''
+            />
           </li>
           <li>
             <img src={TwitterIcon} alt='Social Icon' />
