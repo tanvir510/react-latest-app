@@ -1,3 +1,6 @@
+.rc-slider {
+  padding: 0px;
+}
 .rc-slider-rail {
   height: 10px;
   border-radius: 0px;
@@ -32,6 +35,12 @@
 .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
   border-color: transparent;
   box-shadow: none;
+}
+
+.rc-slider-mark-text,
+.rc-slider-mark-text-active {
+  color: $white;
+  margin-top: 0px;
 }
 
 .rc-slider-dot {

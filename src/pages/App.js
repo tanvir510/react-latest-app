@@ -11,6 +11,20 @@ const range = {
   DEFAULT_VALUE: 0
 };
 
+const marks = {
+  0: '0',
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5',
+  6: '6',
+  7: '7',
+  8: '8',
+  9: '9',
+  10: '10'
+};
+
 function App() {
   const { MAX_VALUE, MIN_VALUE, DEFAULT_VALUE } = range;
   const [value, setValue] = useState(DEFAULT_VALUE);
@@ -36,17 +50,21 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='range-slider-wrapper'>
-        <Slider
-          min={MIN_VALUE}
-          max={MAX_VALUE}
-          keyboard
-          dots
-          defaultValue={DEFAULT_VALUE}
-          trackStyle={{ background: trackBg }}
-          draggableTrack={false}
-          onChange={(val) => setValue(val)}
-        />
+      <div>
+        <h5 className='text-center pb-1'>React Range Slider</h5>
+        <div className='range-slider-wrapper'>
+          <Slider
+            min={MIN_VALUE}
+            max={MAX_VALUE}
+            keyboard
+            dots
+            defaultValue={DEFAULT_VALUE}
+            marks={marks}
+            trackStyle={{ background: trackBg }}
+            draggableTrack={false}
+            onChange={(val) => setValue(val)}
+          />
+        </div>
       </div>
     </div>
   );
