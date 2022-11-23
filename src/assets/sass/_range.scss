@@ -1,0 +1,43 @@
+.rc-slider-rail {
+  height: 10px;
+  border-radius: 0px;
+  background-color: rgba($color: $white, $alpha: 0.2);
+  cursor: pointer;
+}
+
+.rc-slider-step {
+  height: 10px;
+}
+
+.rc-slider-track {
+  height: 10px;
+  border-radius: 0px;
+  background: transparent;
+}
+
+.rc-slider-handle {
+  margin-top: -7px;
+  width: 15px;
+  height: 23px;
+  margin-top: -7px;
+  background-color: $white;
+  border: none;
+  border-radius: 30px;
+  opacity: 1;
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.rc-slider-dot {
+  bottom: 0px;
+  width: 1px;
+  height: 10px;
+  border: none;
+  border-radius: 0px;
+}

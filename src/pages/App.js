@@ -1,35 +1,51 @@
 // File Import
 import { useEffect, useState } from 'react';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
+
+// Constant value
+
+const range = {
+  MAX_VALUE: 10,
+  MIN_VALUE: 0,
+  DEFAULT_VALUE: 0
+};
 
 function App() {
-  const [value, setValue] = useState(3);
-  const rangeInputs = document.querySelectorAll('input[type="range"]');
+  const { MAX_VALUE, MIN_VALUE, DEFAULT_VALUE } = range;
+  const [value, setValue] = useState(DEFAULT_VALUE);
+  const [trackBg, setTrackBg] = useState('');
 
   useEffect(() => {
-    rangeInputs.oninput = function () {
-      var value = ((value - 0) / (6 - 0)) * 100;
-      rangeInputs.style.background =
-        'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' +
-        value +
-        '%, #fff ' +
-        value +
-        '%, white 100%)';
-    };
+    handleTrackBg();
   }, [value]);
+
+  const handleTrackBg = () => {
+    const percentage = Math.floor((value / MAX_VALUE) * 100);
+
+    if (percentage >= 1 && percentage <= 33) {
+      setTrackBg(`#E81A15`);
+    }
+    if (percentage >= 34 && percentage <= 67) {
+      setTrackBg(`linear-gradient(90deg, #EE1A15 0%, #E1B73A 100%)`);
+    }
+    if (percentage >= 68 && percentage <= 100) {
+      setTrackBg(`linear-gradient(90deg, #EE1A15 0%, #E1B73A 50%, #39A24A 100%)`);
+    }
+  };
 
   return (
     <div className='App'>
       <div className='range-slider-wrapper'>
-        <input
-          style={{
-            background: `linear-gradient(to right, #82cfd0 0%, #82cfd0 40%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.2) 100%)`
-          }}
-          type='range'
-          id='range'
-          min='1'
-          max='6'
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+        <Slider
+          min={MIN_VALUE}
+          max={MAX_VALUE}
+          keyboard
+          dots
+          defaultValue={DEFAULT_VALUE}
+          trackStyle={{ background: trackBg }}
+          draggableTrack={false}
+          onChange={(val) => setValue(val)}
         />
       </div>
     </div>
